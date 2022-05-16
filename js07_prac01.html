@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #area{
+            width: 400px;
+            height: 200px;
+            background-color: lemonchiffon;
+            border: 1px black solid;
+        }
+    </style>
+    <script>
+        function printVal(){
+            let userName = document.getElementsByTagName("input")[0].value;
+            let productName = document.getElementById("pname").value; 
+            let price = document.getElementsByName("price")[0].value;
+
+            // const area = document.getElementById("area");
+            // area.innerHTML = " 구입자 : " +  userName + "님<br>";
+            // area.innerHTML += " 구입상품 : " + productName + "<br>";
+            // area.innerHTML += " 구매가격 : "+ price + "만원";
+            document.getElementById("area").innerHTML="구입자 : " +  userName +"<br>구입상품 : "+productName+"<br>구매가격 : "+price+"만원";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2>연습 1</h2> 
+        <label>구매자 : </label><input type="text" placeholder = "구매자의 이름을 입력하세요." autofocus><br><br>
+        <label>상품명 : </label><input type="text" id="pname"  placeholder = "구매 상품명을 입력하세요."><br><br>
+        <label>가 &nbsp;&nbsp;격 : </label><input type="text"  name="price"  placeholder = "구매 가격을 입력하세요."><br><br>
+        <button onclick="printVal();">입력값 출력하기</button><br><br>
+        <div id="area"></div>
+    </div>
+</body>
+</html>
