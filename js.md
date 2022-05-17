@@ -75,7 +75,7 @@
 
 * __function함수__
 
-  *  window 객체에서 제공하는 대화형 함수
+  * window 객체에서 제공하는 대화형 함수
 
     * __console.log()__
 
@@ -161,4 +161,130 @@
 
 
 ---
+
+* __연산자(operator) `===`, `!==`__ 
+
+```js
+ const opTest =()=>{
+            let check1 = 1;
+            let check2 = "1";
+
+            console.log(check1 == 1);    //true
+            console.log(check1 == "1");  //true
+            console.log(check2 == 1);    //true
+            console.log(check2 == "1");  //true
+            
+            console.log('================');
+
+            console.log(check1 === 1);   //true
+            console.log(check1 !== "1"); //true
+            console.log(check2 !== 1);   //true
+            console.log(check2 === "1"); //true
+        }
+```
+
+---
+
+* __object__
+  * 관련된 데이터와 함수의 집합.
+  * 구성: 함수, 속성, this, 프로토타입
+  * 키값을 사용하여 속성을 식별한다. 
+
+```js
+ //객체 작성1
+        function myClass504(){
+            this.name = "멀티캠퍼스";  //외부에서 접근 가능
+            let name02 = "504강의실";  //외부에서 접근 불가능
+            this.getName02 = function(){
+                return name02;
+            }
+        }
+
+ //객체 작성2 (많이씀)
+        const myClass504_2 = {
+            name: "멀티 캠퍼스",
+            print:function(){
+                alert(myClass504_2.name+ " : print");
+            }
+        }
+        
+        
+ //프로토타입
+        myClass504.prototype.printName=function(){
+            let abc = "메롱";
+            alert(this.name + ", " + this.getName02() + " : prototype " + abc);
+        }
+
+
+function objTest(){
+    let cls = new myClass504();
+
+    console.log(cls.name);
+    console.log(cls.name02);
+    console.log(cls.getName02());
+
+    // let cls2 = new myClass504_2();
+    // console.log(lcs2.name);  오류
+    alert(myClass504_2.name);
+    myClass504_2.print();
+
+    // window.alert(); //객체안에 alert이라는 함수실행!!
+
+    cls.printName(); 
+}
+```
+
+---
+
+* __Number__
+
+```js
+//1.작성방법
+let num = new Number(7);
+let num2 = 7;
+console.log(num + ", " + num2);
+
+//메소드
+num = "12";
+Number.parseInt(num);
+```
+
+---
+
+* __transObject(형변환)__
+
+  * 정수형 형변환 parseInt()
+
+  ```js
+   let vals = Number.parseInt(15);
+  ```
+
+  * 실수형 형변환 parseFloat()
+
+  ```js
+  let vals = parseFloat(15.33);
+  ```
+
+---
+
+* __Math__
+
+```js
+<script>
+        function test1(){
+console.log("반올림: " + Math.round(123.456*100)/100);//반올림
+console.log("내림: " + Math.floor(123.456*10)/10);//내림
+console.log("올림: " + Math.ceil(123.456));//올림
+}
+</script>
+```
+
+---
+
+* __string__
+  * __대문자 변환__: `toUpperCase()`
+  * __소문자 변환__: `toLowerCase()`
+  * __글자 탐색__:`indexOf('탐색할 글자')`
+  * __글자 잘라서 보기__: `substring(index위치,원하는index위치)`
+  * __글자합치기__: `concat()`
 
