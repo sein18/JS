@@ -288,3 +288,74 @@ console.log("올림: " + Math.ceil(123.456));//올림
   * __글자 잘라서 보기__: `substring(index위치,원하는index위치)`
   * __글자합치기__: `concat()`
 
+---
+
+* __window 객체__
+
+  * __프로퍼티__
+
+    ​    -document : 태그에 필용한 정보를 가져다가 이용한다.
+
+    ​    -history: 사이트에서 뒤로가기 앞으로 가기가 가능하게한다. (`back()`, `forward()`, `go()`)
+
+    ​    -location
+
+    ```js
+    //페이지 이동
+    location.href="https://www.daum.net";
+    
+    //페이지 이동
+    location.assign("https://www.naver.com");   
+    
+    //페이지 이동(전단계 이력X)
+    location.replace("https://www.google.com");
+    
+    //페이지 새로고침
+    location.reload();
+    ```
+
+    ​    -navigator
+
+    ​    -screen
+
+    ​    -frames
+
+    ​    -...
+
+  * __메서드__
+
+    ​    -alert()
+
+    ```js
+    window.alert("내용"); //팝업창을 띄운다.
+    ```
+
+    ​    -confirm()
+
+    ```js
+    window.confirm('yes,no의 내용'); //확인,취소 팝업창을 띄운다.
+    ```
+
+    ​    -prompt()
+
+    ```js
+    window.prompt('내용');  //팝업창에 txt형식이 입력가능하다. 리턴 타입이 string이다.
+    ```
+
+    ​    -open()
+
+    ```js
+    window.open("url");  //url 연결해서 열기
+    ```
+
+    ​    -close()
+
+    ```js
+    window.close(); //창 닫기
+    ```
+
+    ​    -back()
+
+    ​    -forward()
+
+    ​    -...
