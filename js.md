@@ -158,7 +158,38 @@
   태그에 들어있는 모든 정보를 배열로 가져온다.
   ```
 
+  * __document.createElement__
 
+  ```js
+  let doc = document.createElement("div");
+  태그를 선언하지 않고 스크립트를 이용하여 태그를 생성한다.
+  ```
+
+  * __document.createAttribute , setAttribute__
+
+  ```js
+  let attr = document.createAttribute("style"); //style = ""; 상태
+  속성 값을 만들어준다.
+  attr.nodeValue = "border:2px solid blue; width:200px;";
+  //style = "border:2px solid blue; width:200px;";
+  속성 값 대입.
+  
+  또는
+  let doc = document.createElement("div");
+  doc.setAttribute("style","border:2px solid blue; width:200px;");
+  //바로 대입!!
+  ```
+
+  * __appendChild__
+
+  ```js
+  document.body.appendChild(div)
+  //스크립트를 이용하여 div태그 밑에 태그 추가
+  ```
+
+  
+
+​	
 
 ---
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom 연습</title>
+    <style>
+        img,#imgView{
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        function createImg(){
+            let radios = document.getElementsByName("rdoBtn");
+            let radioVal = "";
+            for(let i=0;i<radios.length;i++){
+                if(radios[i].checked){
+                    radioVal = "image/" + radios[i].value;
+                    break;
+                }
+            }
+            // 1. img 태그 생성
+            let img = document.createElement("img");
+            // let img = document.getElementsByTagName("img")[0];
+
+            // 2. src속성에 radioVal 값 넣어주고 
+            img.setAttribute("src", radioVal);
+            
+            // 3.
+            let div = document.getElementById("imgView");
+            let chd = document.querySelector("#imgView > img");
+            
+            div.replaceChild(img,chd);
+        }
+        function deleteImg(){
+            // setAttribute()
+            let radios = document.getElementsByName("rdoBtn");
+            let radioVal = "";
+            for(let i=0;i<radios.length;i++){
+                radios[i].checked=false;
+            }
+            let img = document.querySelector("#imgView > img"); 
+            img.setAttribute("src","image/img04.PNG");
+        }
+    </script>
+</head>
+<body>
+    <input type="radio" name="rdoBtn" id="a" value="img01.png"><label for="a">그림1</label><br>
+    <input type="radio" name="rdoBtn" id="ab" value="img02.png"><label for="ab">그림2</label><br>
+    <input type="radio" name="rdoBtn" id="abc" value="img03.png"><label for="abc">그림3</label><br>
+  
+    <button onclick="createImg();">이미지 생성하기</button>
+    <button onclick="deleteImg();">이미지 삭제하기</button>
+    <br>    <br>
+    <idv id="imgView"><img src="image/img04.PNG"></idv>
+</body>
+</html>
