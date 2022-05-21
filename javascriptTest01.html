@@ -103,7 +103,13 @@
 			<option value="w3schools">w3schools</option>
 		</select>
 	</fieldset>
-	
+	<script>
+		function answer06(){
+			let t = document.getElementsByTagName("select")[0];
+			let index = t.selectedIndex;
+			window.open("https://www."+t.options[index].value+".com");  
+		}
+	</script>
 	<!--------------------------------------------------------------------------------------------------------->
 	<fieldset>
 		<legend>문제 7</legend>
@@ -111,14 +117,28 @@
 		숫자 : <span id="numVal">1,4,2,3,11,32,27,5</span>
 		<button onclick="answer07();">정렬</button>
 	</fieldset>
-	
+	<script>
+		function answer07(){
+		let s = document.getElementById("numVal").innerHTML;
+		let s1 = s.split(",");
+		s1.sort(function (b, a) { return b - a });
+		alert(s1);
+	}
+	</script>
 	<!--------------------------------------------------------------------------------------------------------->
 	<fieldset>
 		<legend>문제 8</legend>
 		<h3>개강일부터 오늘까지의 날짜를 alert으로 출력해 주세요. (getTime() 메서드 사용)</h3>
 		개강일 : <input type="date" id="startDate"/> <button onclick="answer08();">날짜</button>
 	</fieldset>
-	
+	<script>
+		function answer08(){ 
+			let date = new Date();
+			let startDate = document.getElementById("startDate").value;
+			let start =new Date(startDate); 
+			alert(Math.floor((date.getTime() - start.getTime())/(1000*60*60*24))+" 일"); 
+		}
+	</script>
 	<!--------------------------------------------------------------------------------------------------------->
 	<fieldset>
 		<legend>문제 9</legend>
@@ -141,7 +161,23 @@
 			</tbody>
 		</table>
 	</fieldset>
-	
+	<script>
+		function answer09(){
+			let form = document.forms[0];
+			let vals= [form.name.value,form.age.value,form.gender.value];
+		 
+			document.getElementById("createTable").appendChild( createRow(vals) );
+		}
+		function createRow(vals){ 
+			let tr = document.createElement("tr"); 
+			for(let i=0;i<vals.length;i++){
+				let td = document.createElement("td");
+				td.textContent=vals[i];
+				tr.appendChild(td);
+			} 
+			return tr;
+		}
+	</script>
 	<!--------------------------------------------------------------------------------------------------------->
 	<fieldset>
 		<legend>문제 10</legend>
@@ -149,6 +185,21 @@
 		<h5>(입력 예: 3 -> 3*1 = 3 3*2 = 6 ...)</h5>
 		<input type="text" id="gugudan" /> <button onclick="answer10();">출력</button>
 	</fieldset>
-	
+	<script>
+		function answer10(){
+			let num = document.getElementById("gugudan").value;
+			num = Number(num);
+			console.log(num);
+			let s= "";
+			if(num>0){
+				for(let i=1;i<10;i++){
+						s+= (num + "*" + i + " = "+ num*i+"\n")
+					}		
+				alert(s)
+			}else{
+				alert("숫자가 아닙니다.")
+			}
+		} 
+	</script>
 </body>
 </html>

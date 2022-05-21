@@ -20,7 +20,17 @@
 		<input type="text" id="q01"/>
 		<button onclick="answer01();">클릭</button>
 	</fieldset>
-	
+	<script>
+		function answer01(){
+			let num = Number(document.getElementById("q01").value);
+			if(num>0){
+				alert(num+10+" 입니다.");
+			}else{
+				alert("숫자가 아닙니다.");
+			}
+		}
+	</script>
+
 	<fieldset>
 		<legend>문제 2</legend>
 		<h3>input 태그에 숫자를 입력하고 버튼을 클릭하였을 때, 해당 값이 존재하는지 여부를 출력해 주세요</h3>
@@ -29,7 +39,20 @@
 		<button onclick="answer02();">클릭</button>
 		<pre id="numberArr">1 2 4 7 11 16</pre>
 	</fieldset>
-	
+	<script>
+		function answer02(){
+			let num = document.getElementById("inputVal").value;
+			let s = document.getElementById("numberArr").innerHTML;
+			s = s.split(" ");
+			for(let i=0;i<s.length;i++){
+				if(s[i]==num){
+					alert(s[i]);
+					return;
+				} 
+			}
+			alert("해당 숫자는 존재하지 않습니다.");
+		}
+	</script>
 	<fieldset>
 		<legend>문제 3</legend>
 		<h3>라디오버튼을 클릭하면 value값을 이용해 해당 사이트로 이동해 주세요.</h3>
@@ -38,7 +61,16 @@
 		<input type="radio" name="rdo" value="google" onclick="answer03();"/>구글<br/>
 		<input type="radio" name="rdo" value="w3schools" onclick="answer03();"/>w3schools<br/>
 	</fieldset>
-	
+	<script>
+		function answer03(){
+			let s = document.getElementsByName("rdo");
+			for(let i=0;i<s.length;i++){
+				if(s[i].checked){
+					location.href ="https://www."+s[i].value+".com";
+				}
+			} 
+		}
+	</script>
 	<fieldset>
 		<legend>문제 4</legend>
 		<h3>버튼을 클릭하면, 첫번째 체크박스의 항목을 체크해 주세요</h3>
@@ -47,14 +79,35 @@
 		<input type="checkbox" name="subject" />Web<br/>
 		<button onclick="answer04();">클릭</button>
 	</fieldset>
-	
+	<script>
+		let num=0;
+		function answer04(){
+			let name = document.getElementsByName("subject");
+			if(num>2){
+				num=0;
+			}
+			for(let i=0;i<3;i++){
+				if(num==i){
+				document.getElementsByName("subject")[i].checked = true;
+				}
+				else{
+					document.getElementsByName("subject")[i].checked = false;
+				}
+			}
+			num++;
+		}  
+	</script>
 	<fieldset>
 		<legend>문제 5</legend>
 		<h3>1~45 사이의 랜덤한 숫자를 생성해서 input 태그 안에 입력해 주세요.</h3>
 		랜덤 : <input type="text" readonly="readonly" id="randomVAl" />
 		<button onclick="answer05();">클릭</button>
 	</fieldset>
-	
+	<script>
+		function answer05(){
+			document.getElementById("randomVAl").value = Math.floor(((Math.random()*100)%45)+1);
+		}
+	</script>
 	<fieldset>
 		<legend>문제 6</legend>
 		<h3>open 메소드를 사용하여, 선택한 select태그의 해당 패이지를 팝업창으로 실행해 주세요.</h3>
@@ -66,7 +119,15 @@
 		</select>
 		<button onclick="answer06();">클릭</button>
 	</fieldset>
-
+	<script>
+		function answer06(){
+			let sel = document.getElementById("selOption");
+			let idx = sel.selectedIndex;
+			if(idx != -1){
+				window.open("http://www."+sel.options[idx].value+".com");
+			}
+		};
+	</script>
 	<fieldset>
 		<legend>문제 7</legend>
 		<h3>선택한 날짜부터 3일 후의 요일을 alert으로 출력해 주세요.</h3>
@@ -74,7 +135,36 @@
 		<input type="date" id="inputDate" />
 		<button onclick="answer08();">클릭</button>
 	</fieldset>
-	
+	<script>
+		function answer08(){
+			let date = document.getElementById("inputDate").value;
+			let start = new Date(date);
+			let num = start.getDay(start.setDate(start.getDate()+3));
+			switch (num){
+				case 0:
+					alert("일요일");
+					break;
+				case 1:
+					alert("월요일");
+					break;
+				case 2:
+					alert("화요일");
+					break;
+				case 3:
+					alert("수요일");
+					break;
+				case 4:
+					alert("목요일");
+					break;
+				case 5:
+					alert("금요일");
+					break;
+				case 6:
+					alert("토요일");
+					break;
+			}
+		}
+	</script>
 	<fieldset>
 		<legend>문제 8</legend>
 		<h3>원하는 구구단을 입력하고, alert으로 해당 단을 출력해 주세요.</h3>
@@ -82,7 +172,22 @@
 		<input type="text" id="dan" />
 		<button onclick="answer09();">클릭</button>
 	</fieldset>
-	
+	<script>
+		function answer09(){
+			let num = document.getElementById("dan").value;
+			num = Number(num);
+			console.log(num);
+			let s= "";
+			if(num>0){
+				for(let i=1;i<10;i++){
+						s+= (num + "*" + i + " = "+ num*i+"\n")
+					}		
+				alert(s)
+			}else{
+				alert("숫자가 아닙니다.")
+			}
+		}
+	</script>
 	<fieldset>
 		<legend>문제 9</legend>
 		<h3>input 태그에 입력한 문자열과, span 태그의 문자열을 합쳐서 출력해 주세요.</h3>
@@ -91,6 +196,10 @@
 		<span id="addVal">님, 안녕하세요</span>
 		<button onclick="answer10();">클릭</button>
 	</fieldset>
-
+	<script>
+		function answer10(){
+			alert(document.getElementById("inputName").value+" "+document.getElementById("addVal").innerHTML);
+		}
+	</script>
 </body>
 </html>
